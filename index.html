@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Демо-версия сайта Coffeerista (Пушкино), не для публикации. Тексты, цены и фото взяты с Яндекс Карт и Telegram-канала Coffeerista. -->
+<!-- Демо-версия сайта Coffeerista (Пушкино), сделан на заказ, не для публикации. Тексты, цены и фото взяты с Яндекс Карт и Telegram-канала Coffeerista. -->
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -62,6 +62,8 @@ button, input, select { font: inherit; }
 
 /* Demo strip + watermark */
 .demo-top { background: var(--lid); color: var(--lid-ink); text-align: center; font: 700 13px/1.4 var(--body); padding: 7px 16px; letter-spacing: .01em; }
+.demo-corner { position: fixed; left: 12px; bottom: 12px; z-index: 61; padding: 6px 10px; border-radius: 8px; background: rgba(28,29,32,.8); border: 1px solid rgba(255,197,39,.55); color: #fff; font: 700 11px/1.2 var(--body); letter-spacing: .06em; text-transform: uppercase; pointer-events: none; }
+@media (max-width: 959px) { .demo-corner { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); } }
 .demo-mark { position: fixed; inset: 0; z-index: 60; width: 100%; height: 100%; pointer-events: none; opacity: .04; mix-blend-mode: difference; }
 
 /* Photos */
@@ -363,7 +365,7 @@ h3 { font-size: 24px; line-height: 1.1; font-weight: 600; }
 </style>
 </head>
 <body>
-<div class="demo-top">Демо-версия нового сайта Coffeerista</div>
+<div class="demo-top">Демо-версия · сайт сделан на заказ для Coffeerista</div>
 
 <nav class="nav" aria-label="Основное меню">
   <div class="wrap">
@@ -703,7 +705,7 @@ h3 { font-size: 24px; line-height: 1.1; font-weight: 600; }
         <li><b>ул. Просвещения, 12к1</b><span>Пн–Пт 8:00–21:00<br>Сб–Вс 9:00–22:00</span><a href="https://yandex.ru/maps/org/coffeerista/82937351431/" target="_blank" rel="noopener">Яндекс Карты</a></li>
       </ul>
     </div>
-    <p class="demo-note">Это демо-версия нового сайта. Тексты, цены и фото взяты с Яндекс Карт и Telegram-канала Coffeerista и могут отличаться от актуальных. Часы работы в праздничные дни уточняйте в кофейне.</p>
+    <p class="demo-note">Это демо-версия сайта, сделанного на заказ для Coffeerista. Тексты, цены и фото взяты с Яндекс Карт и Telegram-канала Coffeerista и могут отличаться от актуальных. Часы работы в праздничные дни уточняйте в кофейне.</p>
   </div>
 </footer>
 
@@ -712,11 +714,13 @@ h3 { font-size: 24px; line-height: 1.1; font-weight: 600; }
   <a class="btn btn-ghost" href="https://t.me/coffeeristaofficial" target="_blank" rel="noopener">Telegram</a>
 </div>
 
+<div class="demo-corner">Сайт на заказ · демо</div>
+
 <svg class="demo-mark" aria-hidden="true" focusable="false">
   <defs>
-    <pattern id="demoTile" width="720" height="400" patternUnits="userSpaceOnUse" patternTransform="rotate(-24)">
-      <text x="10" y="110" font-family="Oswald, Arial Narrow, sans-serif" font-weight="700" font-size="54" letter-spacing="8" fill="#ffffff">ДЕМО-ВЕРСИЯ</text>
-      <text x="370" y="320" font-family="Oswald, Arial Narrow, sans-serif" font-weight="700" font-size="54" letter-spacing="8" fill="#ffffff">ДЕМО-ВЕРСИЯ</text>
+    <pattern id="demoTile" width="1400" height="420" patternUnits="userSpaceOnUse" patternTransform="rotate(-24)">
+      <text x="10" y="120" font-family="Oswald, Arial Narrow, sans-serif" font-weight="700" font-size="40" letter-spacing="6" fill="#ffffff">САЙТ СДЕЛАН НА ЗАКАЗ — ДЕМО</text>
+      <text x="710" y="330" font-family="Oswald, Arial Narrow, sans-serif" font-weight="700" font-size="40" letter-spacing="6" fill="#ffffff">САЙТ СДЕЛАН НА ЗАКАЗ — ДЕМО</text>
     </pattern>
   </defs>
   <rect width="100%" height="100%" fill="url(#demoTile)"/>
@@ -1093,7 +1097,7 @@ h3 { font-size: 24px; line-height: 1.1; font-weight: 600; }
     drawLid(cx2, 450, 432, 380, lidOpts());
     cx2.save();
     cx2.font = '600 22px Manrope, sans-serif'; cx2.textAlign = 'center';
-    cx2.fillStyle = 'rgba(60,40,10,.55)'; cx2.fillText('демо-версия', 450, 872);
+    cx2.fillStyle = 'rgba(60,40,10,.55)'; cx2.fillText('сайт сделан на заказ · демо', 450, 872);
     cx2.restore();
   }
   function order() {
@@ -1140,7 +1144,7 @@ h3 { font-size: 24px; line-height: 1.1; font-weight: 600; }
     x.fillStyle = '#f3efe7'; fit(x, o.d.name + ', ' + o.s.ml + ' мл', 920, 700, 44, 'Manrope, sans-serif'); x.fillText(o.d.name + ', ' + o.s.ml + ' мл', 540, 1092);
     x.fillStyle = '#b4afa6'; fit(x, 'Coffeerista, ' + o.place.addr, 920, 500, 30, 'Manrope, sans-serif'); x.fillText('Coffeerista, ' + o.place.addr, 540, 1144);
     x.fillStyle = '#ffc527'; x.font = '700 58px Caveat, cursive'; x.fillText('Могли бы и раньше встретиться', 540, 1228);
-    x.fillStyle = 'rgba(243,239,231,.55)'; x.font = '600 24px Manrope, sans-serif'; x.fillText('демо-версия', 540, 1306);
+    x.fillStyle = 'rgba(243,239,231,.55)'; x.font = '600 24px Manrope, sans-serif'; x.fillText('сайт сделан на заказ · демо-версия', 540, 1306);
     c.toBlob(function (blob) {
       if (!blob) return;
       var a = document.createElement('a');
