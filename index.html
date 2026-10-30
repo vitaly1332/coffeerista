@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<!-- Демо-версия сайта Coffeerista (Пушкино), не для публикации. Тексты, цены и фото взяты с Яндекс Карт и Telegram-канала Coffeerista. -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Coffeerista — кофейные бары в Пушкино</title>
+<meta name="description" content="Coffeerista — три кофейных бара в Пушкино: Московский проспект, 14 и 57, улица Просвещения, 12. Капучино от 180 ₽, латте-арт, сырники, детская комната. Пн–Пт с 8:00, Сб–Вс с 9:00.">
+<meta name="theme-color" content="#26282c">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23e8a90a'/%3E%3Ccircle cx='16' cy='16' r='13.5' fill='%23ffc527'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23e8a90a' stroke-width='1.2'/%3E%3Crect x='12' y='6.5' width='8' height='2.6' rx='1.3' fill='%233a2a08'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Coffeerista — кофейные бары в Пушкино">
+<meta property="og:description" content="Три кофейни в Пушкино: кофе с латте-артом, сезонные напитки, сырники и надписи от руки на жёлтых крышках.">
+<meta property="og:image" content="https://avatars.mds.yandex.net/get-altay/19847861/2a0000019df6e3b974b520897d773c4eda25/XXL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://avatars.mds.yandex.net">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap">
+<style>
+/* Concept: «надписи на крышках». Graphite walls and yellow lids from the real bars; every section opens with a lid badge
+   signed in marker; neon phrases from the halls run as a band; the lid builder draws a real-looking lid on canvas. */
+:root {
+  color-scheme: light;
+  --wall: #26282c;
+  --wall-2: #2f3237;
+  --wall-3: #1c1d20;
+  --wall-line: #40444b;
+  --on-wall: #f3efe7;
+  --on-wall-mute: #b4afa6;
+  --lid: #ffc527;
+  --lid-hi: #ffd45a;
+  --lid-deep: #e8a90a;
+  --lid-ink: #2a2112;
+  --amber-text: #8a5d00;
+  --oak: #ece2d0;
+  --cream: #f7f2e9;
+  --paper: #fffdf8;
+  --ink: #1f2023;
+  --ink-mute: #645d53;
+  --line: #ddd2bf;
+  --open: #3ec27a;
+  --closed: #a29c92;
+  --neon: #ffe7a6;
+  --neon-red: #ff7a6b;
+  --display: "Oswald", "Arial Narrow", Impact, sans-serif;
+  --hand: "Caveat", "Segoe Print", "Comic Sans MS", cursive;
+  --body: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --r: 22px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--wall); color: var(--on-wall); font: 400 16px/1.6 var(--body); overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button, input, select { font: inherit; }
+:focus-visible { outline: 3px solid var(--lid); outline-offset: 3px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 768px) { .wrap { padding: 0 28px; } }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Demo strip + watermark */
+.demo-top { background: var(--lid); color: var(--lid-ink); text-align: center; font: 700 13px/1.4 var(--body); padding: 7px 16px; letter-spacing: .01em; }
+.demo-mark { position: fixed; inset: 0; z-index: 60; width: 100%; height: 100%; pointer-events: none; opacity: .04; mix-blend-mode: difference; }
+
+/* Photos */
+.ph { position: relative; overflow: hidden; margin: 0; background: #3a3d42; }
+.ph img { width: 100%; height: 100%; object-fit: cover; }
+.ph-tag { position: absolute; right: 8px; bottom: 8px; z-index: 2; font: 700 10px/1 var(--body); letter-spacing: .1em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.5); padding: 4px 6px; border-radius: 6px; pointer-events: none; }
+.ph.round .ph-tag { right: auto; left: 50%; bottom: 9%; transform: translateX(-50%); }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 30; background: rgba(38,40,44,.9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.07); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+.brand svg { width: 36px; height: 36px; flex: none; }
+.brand-name { font: 700 21px/1 var(--display); letter-spacing: .07em; }
+.brand-sub { display: block; margin-top: 3px; font: 600 11px/1.2 var(--body); color: var(--on-wall-mute); letter-spacing: .03em; }
+.nav-links { display: none; gap: 26px; }
+.nav-links a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--on-wall-mute); transition: color .15s; }
+.nav-links a:hover { color: var(--on-wall); }
+.nav .btn { min-height: 42px; padding: 0 18px; font-size: 14px; }
+.nav .nav-cta { display: none; }
+@media (min-width: 960px) { .nav-links { display: flex; } .nav .nav-cta { display: inline-flex; } }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px; border-radius: 999px; font: 700 15px/1.1 var(--body); text-decoration: none; text-align: center; border: 2px solid transparent; cursor: pointer; transition: transform .15s, background-color .15s, border-color .15s, color .15s; }
+.btn:active { transform: translateY(1px); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn-lid { background: var(--lid); color: var(--lid-ink); }
+.btn-lid:hover { background: var(--lid-hi); }
+.btn-ghost { border-color: rgba(255,255,255,.28); color: var(--on-wall); background: transparent; }
+.btn-ghost:hover { border-color: var(--lid); color: var(--lid); }
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-dark:hover { background: #3a3c41; }
+.btn-line { border-color: rgba(31,32,35,.3); color: var(--ink); background: transparent; }
+.btn-line:hover { border-color: var(--ink); }
+
+/* Section scaffolding */
+.sec { padding: clamp(64px, 9vw, 116px) 0; }
+.sec-cream { background: var(--cream); color: var(--ink); }
+.sec-oak { background: var(--oak); color: var(--ink); }
+.sec-dark { background: var(--wall-3); }
+.sec-head { max-width: 720px; margin-bottom: clamp(32px, 4vw, 48px); }
+.sec-head p { margin: 14px 0 0; font-size: 17px; color: var(--on-wall-mute); }
+.sec-cream .sec-head p, .sec-oak .sec-head p { color: var(--ink-mute); }
+h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: .01em; }
+h2 { font-size: clamp(34px, 5vw, 58px); line-height: 1; }
+h3 { font-size: 24px; line-height: 1.1; font-weight: 600; }
+.mark { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.mark-lid { width: 62px; height: 62px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--lid); transform: rotate(-10deg);
+  box-shadow: inset 0 0 0 4px var(--lid-deep), inset 0 0 0 9px var(--lid), inset 0 0 0 10px rgba(150,95,0,.25), 0 8px 16px rgba(0,0,0,.22); }
+.mark-lid span { font: 700 18px/1 var(--hand); color: #fff; text-shadow: 1px 1px 0 rgba(150,90,0,.35); white-space: nowrap; }
+.eyebrow { font: 700 13px/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--lid); }
+.sec-cream .eyebrow, .sec-oak .eyebrow { color: var(--amber-text); }
+.hand { font-family: var(--hand); font-weight: 700; text-transform: none; }
+.fine { font-size: 14px; color: var(--ink-mute); margin: 18px 0 0; }
+
+/* Owner notes (?owner=1) */
+.owner-note { display: none; }
+.owner .owner-note { display: block; position: relative; margin: 18px 0; padding: 12px 14px 12px 14px; background: #fff4c2; color: #3a2f00; border: 2px dashed #d9a800; border-radius: 12px; font: 500 14px/1.5 var(--body); max-width: 640px; }
+.owner .owner-note b { display: block; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 2px; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; padding: clamp(36px, 6vw, 80px) 0 clamp(64px, 8vw, 100px); }
+.hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 50% at 78% 30%, rgba(255,197,39,.14), transparent 70%); pointer-events: none; }
+.hero-grid { position: relative; display: grid; gap: 44px; align-items: center; }
+@media (min-width: 960px) { .hero-grid { grid-template-columns: 1.08fr .92fr; gap: 56px; } }
+.hero-kicker { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 20px; font: 700 13px/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--lid); }
+.hero-kicker::before { content: ""; width: 28px; height: 2px; background: var(--lid); }
+.hero h1 { font-size: clamp(46px, 6.4vw, 88px); line-height: .98; }
+.hero h1 .hand { display: inline-block; color: var(--lid); font-size: 1.08em; line-height: .8; transform: rotate(-4deg) translateY(-.02em); padding: 0 .04em; margin: .04em 0 .16em; }
+.lead { margin: 24px 0 0; max-width: 560px; font-size: clamp(17px, 1.6vw, 19px); color: #d6d1c8; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.status-list { list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 8px; max-width: 520px; }
+.status-list li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; padding: 11px 14px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07); font-size: 14px; }
+.status-list a { text-decoration: none; font-weight: 700; }
+.status-list a:hover { color: var(--lid); }
+.st { color: var(--on-wall-mute); text-align: right; white-space: nowrap; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--closed); }
+.is-open .dot { background: var(--open); box-shadow: 0 0 0 4px rgba(62,194,122,.18); }
+.is-open .st { color: #9be3bb; }
+
+.hero-art { position: relative; max-width: 540px; width: 100%; justify-self: center; }
+.hero-photo { border-radius: 30px; aspect-ratio: 4 / 5; box-shadow: 0 30px 60px rgba(0,0,0,.4); }
+.hero-lid { position: absolute; left: -8px; bottom: -26px; width: 40%; max-width: 210px; filter: drop-shadow(0 14px 18px rgba(0,0,0,.4)); animation: spin 60s linear infinite; }
+@media (min-width: 960px) { .hero-lid { left: -54px; bottom: -34px; } }
+.hero-rating { position: absolute; top: 16px; right: 16px; z-index: 3; display: flex; align-items: center; gap: 8px; padding: 9px 13px; border-radius: 14px; background: rgba(28,29,32,.82); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font: 700 18px/1 var(--display); }
+.hero-rating .star { color: var(--lid); }
+.hero-rating small { font: 600 11px/1.25 var(--body); color: var(--on-wall-mute); }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Neon band */
+.neon-band { background: var(--wall-3); border-block: 1px solid rgba(255,255,255,.05); overflow: hidden; padding: 22px 0; }
+.neon-track { display: flex; width: max-content; animation: marquee 70s linear infinite; }
+.neon-set { display: flex; align-items: center; gap: 44px; padding-right: 44px; }
+.neon { white-space: nowrap; font: 600 clamp(28px, 3.4vw, 42px)/1.1 var(--hand); color: var(--neon); text-shadow: 0 0 4px rgba(255,214,110,.9), 0 0 14px rgba(255,180,20,.75), 0 0 34px rgba(255,160,0,.45); }
+.neon.caps { font: 500 clamp(20px, 2.4vw, 28px)/1.1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+.neon.red { color: #ffd2c9; text-shadow: 0 0 4px rgba(255,120,100,.9), 0 0 14px rgba(255,70,50,.75), 0 0 34px rgba(255,40,30,.45); }
+.neon-sep { color: var(--lid); opacity: .6; font-size: 18px; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Lids */
+.lids-grid { display: grid; gap: 44px; align-items: center; }
+@media (min-width: 960px) { .lids-grid { grid-template-columns: .85fr 1.15fr; gap: 64px; } }
+.lids-copy p { color: var(--ink-mute); font-size: 17px; margin: 14px 0 0; }
+.tg-quote { margin: 28px 0 30px; padding: 20px 22px; border-radius: 18px; background: var(--paper); border: 1px solid var(--line); position: relative; }
+.tg-quote p { margin: 0; font: 700 clamp(26px, 2.6vw, 32px)/1.15 var(--hand); color: var(--ink); }
+.tg-quote cite { display: block; margin-top: 8px; font: 500 13px/1.4 var(--body); font-style: normal; color: var(--ink-mute); }
+.lid-photos { list-style: none; margin: 0; padding: 4px 4px 16px; display: grid; grid-auto-flow: column; grid-auto-columns: 172px; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+.lid-photos li { scroll-snap-align: start; text-align: center; }
+.lid-photos .ph { aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 0 6px var(--paper), 0 14px 26px rgba(60,40,0,.18); transform: rotate(var(--rot, 0deg)); }
+.lid-photos span.cap { display: block; margin-top: 14px; font: 700 21px/1.1 var(--hand); color: var(--ink); }
+@media (min-width: 640px) { .lid-photos { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); grid-auto-columns: auto; overflow: visible; padding: 4px; } .lid-photos li:nth-child(even) { transform: translateY(26px); } }
+
+/* Latte art */
+.art-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (min-width: 768px) { .art-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; } }
+.art-grid .ph { aspect-ratio: 4 / 5; border-radius: 20px; }
+.art-grid figcaption { position: absolute; left: 12px; bottom: 10px; z-index: 2; font: 700 24px/1 var(--hand); color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+.art-grid .ph::after { content: ""; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.45)); }
+
+/* Menu */
+.menu-layout { display: grid; gap: 28px; align-items: start; }
+@media (min-width: 1024px) { .menu-layout { grid-template-columns: 1fr 330px; gap: 36px; } }
+.board { background: var(--paper); border-radius: 26px; border: 1px solid var(--line); box-shadow: 0 24px 50px rgba(70,50,10,.1); overflow: hidden; }
+.tabs { display: flex; gap: 8px; padding: 16px; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: none; min-height: 42px; padding: 0 16px; border-radius: 10px; border: 1.5px solid var(--line); background: transparent; color: var(--ink); font: 600 15px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: background-color .15s, border-color .15s; }
+.tab:hover { border-color: var(--lid-deep); }
+.tab[aria-selected="true"] { background: var(--lid); border-color: var(--lid); color: var(--lid-ink); }
+.board-body { padding: 8px 16px 22px; }
+@media (min-width: 768px) { .board-body { padding: 10px 28px 28px; } }
+.tb-title { margin: 22px 0 4px; font: 600 15px/1.2 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--amber-text); }
+.price { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.price th, .price td { padding: 11px 0; border-bottom: 1px dashed var(--line); text-align: right; vertical-align: baseline; }
+.price thead th { font: 600 12px/1.2 var(--body); letter-spacing: .06em; color: var(--ink-mute); text-transform: uppercase; border-bottom: 1px solid var(--line); padding-top: 18px; }
+.price th[scope="row"], .price thead th:first-child { text-align: left; font-weight: 600; padding-right: 10px; }
+.price th[scope="row"] { font: 600 16px/1.35 var(--body); color: var(--ink); }
+.price td { width: 64px; font-weight: 700; font-size: 16px; }
+@media (min-width: 768px) { .price td { width: 86px; font-size: 17px; } }
+.price td.na { color: #c3b8a5; font-weight: 400; }
+.price tbody tr:last-child > * { border-bottom: 0; }
+.vol { display: inline-block; margin-left: 4px; padding: 1px 6px; border: 1px solid var(--line); border-radius: 6px; font: 600 11px/1.5 var(--body); color: var(--ink-mute); vertical-align: 2px; }
+.board-foot { margin: 18px 0 0; padding: 14px 16px; border-radius: 14px; background: #fff5d3; font-size: 14px; color: #4b3a08; }
+.season { display: grid; gap: 16px; padding-top: 18px; }
+@media (min-width: 768px) { .season { grid-template-columns: 1fr 1fr; } }
+.s-card { border-radius: 18px; padding: 20px; color: var(--ink); }
+.s-summer { background: linear-gradient(160deg, #dff3ff, #fff6dc); }
+.s-autumn { background: linear-gradient(160deg, #ffe7c7, #f6d3a8); }
+.s-card h4 { margin: 0; font: 700 24px/1.05 var(--display); text-transform: uppercase; }
+.s-sub { margin: 4px 0 12px; font-size: 13px; color: var(--ink-mute); }
+.s-card ul, .extra-list { list-style: none; margin: 0; padding: 0; }
+.s-card li, .extra-list li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed rgba(31,32,35,.15); font-size: 15px; }
+.s-card li:last-child, .extra-list li:last-child { border-bottom: 0; }
+.s-card b, .extra-list b { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.extras { display: grid; gap: 16px; padding-top: 18px; }
+@media (min-width: 768px) { .extras { grid-template-columns: 1fr 1fr; } }
+.x-card { border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+.x-card h4 { margin: 0 0 10px; font: 700 22px/1.05 var(--display); text-transform: uppercase; }
+.x-card p { margin: 8px 0 0; font-size: 14px; color: var(--ink-mute); }
+.syrniki { background: var(--lid); border-color: var(--lid); }
+.syrniki .big { display: flex; gap: 22px; margin: 4px 0 6px; }
+.syrniki .big div { font: 700 34px/1 var(--display); }
+.syrniki .big small { display: block; font: 600 13px/1.3 var(--body); margin-top: 4px; }
+.syrniki p { color: #4b3a08; }
+.menu-side { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+@media (min-width: 1024px) { .menu-side { grid-template-columns: 1fr; position: sticky; top: 88px; } }
+.menu-side .ph { border-radius: 20px; aspect-ratio: 1; }
+.menu-side .ph figcaption { position: absolute; left: 12px; bottom: 10px; z-index: 2; font: 700 22px/1 var(--hand); color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.65); }
+.side-note { grid-column: 1 / -1; margin: 0; padding: 18px; border-radius: 18px; background: var(--wall); color: var(--on-wall); font-size: 15px; }
+.side-note b { color: var(--lid); }
+
+/* Lid builder */
+.builder { display: grid; gap: 28px; align-items: start; }
+@media (min-width: 1024px) { .builder { grid-template-columns: 1fr 1.05fr; gap: 44px; } }
+.b-form { display: grid; gap: 20px; padding: clamp(18px, 3vw, 28px); border-radius: 24px; background: var(--wall); border: 1px solid rgba(255,255,255,.07); }
+.field { display: grid; gap: 8px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.field > span, .field > legend { font: 700 13px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--on-wall-mute); padding: 0; display: flex; justify-content: space-between; gap: 10px; }
+.field legend { margin-bottom: 8px; }
+.field em { font-style: normal; letter-spacing: 0; text-transform: none; font-weight: 600; }
+.field select, .field input[type="text"] { width: 100%; min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1.5px solid var(--wall-line); background: var(--wall-3); color: var(--on-wall); font-size: 16px; }
+.field select { appearance: none; -webkit-appearance: none; padding-right: 40px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23ffc527' stroke-width='2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.field input[type="text"] { font: 700 26px/1 var(--hand); }
+.field select:focus, .field input:focus { border-color: var(--lid); outline: none; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; }
+.seg button, .chip { min-height: 44px; padding: 0 14px; border-radius: 12px; border: 1.5px solid var(--wall-line); background: var(--wall-3); color: var(--on-wall); font-weight: 600; font-size: 15px; cursor: pointer; transition: border-color .15s, background-color .15s, color .15s; }
+.seg button:hover, .chip:hover { border-color: var(--lid-deep); }
+.seg button[aria-checked="true"], .chip[aria-pressed="true"] { background: var(--lid); border-color: var(--lid); color: var(--lid-ink); }
+.seg button small { font-weight: 500; opacity: .75; margin-left: 4px; }
+.seg-icons button { min-width: 46px; padding: 0 10px; display: inline-grid; place-items: center; }
+.ink-sw { width: 18px; height: 18px; border-radius: 50%; display: inline-block; vertical-align: -3px; margin-right: 6px; border: 1.5px solid rgba(255,255,255,.4); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.b-preview { display: grid; gap: 16px; }
+.b-table { position: relative; border-radius: 26px; padding: clamp(10px, 3vw, 24px); background: radial-gradient(120% 90% at 30% 20%, #e7d5b5, #cdb38a 70%, #b89a6e); box-shadow: inset 0 0 0 1px rgba(255,255,255,.25), 0 24px 48px rgba(0,0,0,.35); }
+.b-table canvas { display: block; width: 100%; max-width: 460px; height: auto; margin: 0 auto; aspect-ratio: 1; }
+.receipt { position: relative; padding: 20px 22px; border-radius: 18px; background: var(--paper); color: var(--ink); overflow: hidden; }
+.r-row { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; font-size: 15px; }
+.r-row b { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.r-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; padding-top: 12px; border-top: 2px dashed var(--line); font: 700 26px/1 var(--display); text-transform: uppercase; }
+.r-note { margin: 10px 0 0; font-size: 13px; color: var(--ink-mute); max-width: 75%; }
+.stamp { position: absolute; right: 16px; bottom: 16px; transform: rotate(-12deg); padding: 6px 10px; border: 3px solid rgba(214,50,40,.75); border-radius: 8px; color: rgba(214,50,40,.85); font: 700 15px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; pointer-events: none; }
+.b-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.b-actions .btn { flex: 1 1 auto; }
+
+/* Places */
+.places { display: grid; gap: 22px; }
+@media (min-width: 900px) { .places { grid-template-columns: repeat(3, 1fr); } }
+.place { display: flex; flex-direction: column; border-radius: 24px; background: var(--paper); border: 1px solid var(--line); overflow: hidden; }
+.place-photo { aspect-ratio: 4 / 3; }
+.place-status { position: absolute; left: 12px; top: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: rgba(28,29,32,.85); color: #fff; font: 700 13px/1 var(--body); }
+.place-status.is-open { background: rgba(20,80,48,.9); }
+.place-status .dot { width: 8px; height: 8px; }
+.place-body { display: flex; flex-direction: column; gap: 12px; padding: 20px 20px 22px; flex: 1; }
+.place-meta { margin: -4px 0 0; font-size: 14px; color: var(--ink-mute); }
+.hours { margin: 0; display: grid; gap: 4px; font-size: 15px; }
+.hours div { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--line); padding: 5px 0; }
+.hours dt { color: var(--ink-mute); }
+.hours dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tags li { padding: 5px 10px; border-radius: 999px; background: var(--oak); font-size: 13px; font-weight: 600; }
+.tags li.hl { background: var(--lid); }
+.place-rating { margin: 0; font-weight: 700; font-size: 15px; }
+.place-rating span { color: var(--lid-deep); }
+.place-actions { display: flex; gap: 10px; margin-top: auto; padding-top: 4px; }
+.place-actions .btn { flex: 1; min-height: 46px; padding: 0 14px; font-size: 14px; }
+.map { margin-top: 26px; border-radius: 24px; overflow: hidden; background: var(--wall); color: var(--on-wall); width: 100%; }
+.map.loaded { aspect-ratio: 16 / 9; min-height: 360px; max-height: 540px; background: var(--oak); }
+.map iframe { display: block; width: 100%; height: 100%; border: 0; }
+.map-ph { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; padding: clamp(22px, 3vw, 32px); background: radial-gradient(70% 140% at 100% 0%, rgba(255,197,39,.16), transparent 60%); }
+.map-ph h3 { font-size: 26px; }
+.map-pins { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 15px; font-weight: 600; }
+.map-pins li { display: flex; align-items: center; gap: 8px; }
+.map-pins span { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--lid); color: var(--lid-ink); font: 700 14px/1 var(--display); }
+.also { margin: 18px 0 0; font-size: 15px; color: var(--ink-mute); }
+.also a { color: var(--ink); font-weight: 700; }
+
+/* Vibe */
+.vibe-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; grid-auto-flow: dense; }
+@media (min-width: 768px) { .vibe-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 230px; gap: 16px; } }
+.vibe-grid .ph { border-radius: 20px; }
+.vibe-grid .big { grid-column: span 2; grid-row: span 2; }
+.vibe-grid .wide { grid-column: span 2; }
+.vibe-grid figcaption { position: absolute; left: 12px; bottom: 10px; z-index: 2; padding: 5px 10px; border-radius: 999px; background: rgba(28,29,32,.78); font: 600 12px/1.2 var(--body); color: var(--on-wall); }
+.perks { list-style: none; margin: 34px 0 0; padding: 0; display: grid; gap: 14px; }
+@media (min-width: 768px) { .perks { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .perks { grid-template-columns: repeat(4, 1fr); } }
+.perks li { padding: 20px; border-radius: 20px; background: var(--wall-2); border: 1px solid rgba(255,255,255,.06); }
+.perks svg { width: 34px; height: 34px; color: var(--lid); }
+.perks b { display: block; margin: 12px 0 4px; font: 600 19px/1.15 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+.perks span { font-size: 14px; color: var(--on-wall-mute); }
+
+/* Reviews */
+.rev-grid { display: grid; gap: 28px; align-items: start; }
+@media (min-width: 1024px) { .rev-grid { grid-template-columns: 340px 1fr; gap: 40px; } }
+.score { padding: 26px; border-radius: 24px; background: var(--wall); color: var(--on-wall); }
+.score-num { display: flex; align-items: baseline; gap: 12px; font: 700 76px/1 var(--display); }
+.score-num span { font-size: 24px; color: var(--lid); letter-spacing: 3px; }
+.score p { margin: 8px 0 18px; font-size: 14px; color: var(--on-wall-mute); }
+.bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.bars li { display: grid; grid-template-columns: 96px 1fr 40px; align-items: center; gap: 10px; font-size: 14px; }
+.bars i { display: block; height: 8px; border-radius: 99px; background: rgba(255,255,255,.1); overflow: hidden; }
+.bars i::before { content: ""; display: block; height: 100%; width: var(--v); background: var(--lid); border-radius: inherit; }
+.bars b { text-align: right; font-variant-numeric: tabular-nums; }
+.score small { display: block; margin-top: 14px; font-size: 12px; color: var(--on-wall-mute); }
+.reviews { display: grid; gap: 16px; }
+@media (min-width: 700px) { .reviews { grid-template-columns: 1fr 1fr; } }
+.review { margin: 0; padding: 22px; border-radius: 20px; background: var(--paper); border: 1px solid var(--line); }
+.review blockquote { margin: 0; font-size: 16px; line-height: 1.55; }
+.review figcaption { margin-top: 14px; display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.review .ava { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--lid); color: var(--lid-ink); font: 700 18px/1 var(--display); flex: none; }
+.review figcaption span { display: block; color: var(--ink-mute); font-size: 13px; }
+.rev-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.rev-links a { font-weight: 700; font-size: 14px; }
+
+/* Footer */
+.foot { background: var(--wall-3); padding: 56px 0 40px; }
+.foot-grid { display: grid; gap: 32px; }
+@media (min-width: 900px) { .foot-grid { grid-template-columns: 1.2fr 2fr; } }
+.foot .brand-name { font-size: 30px; }
+.foot p { color: var(--on-wall-mute); font-size: 14px; }
+.foot-places { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+@media (min-width: 640px) { .foot-places { grid-template-columns: repeat(3, 1fr); } }
+.foot-places b { display: block; font-size: 15px; }
+.foot-places span { display: block; font-size: 13px; color: var(--on-wall-mute); }
+.foot-places a { font-size: 13px; color: var(--lid); }
+.foot-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.demo-note { margin-top: 36px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.08); font-size: 13px; color: var(--on-wall-mute); max-width: 760px; }
+
+/* Mobile bar */
+.mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(28,29,32,.95); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,.08); }
+.mbar .btn { min-height: 48px; padding: 0 10px; font-size: 15px; }
+@media (max-width: 959px) { body { padding-bottom: 76px; } }
+@media (min-width: 960px) { .mbar { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-lid, .neon-track { animation: none; }
+  .neon-band { overflow-x: auto; }
+  .btn { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="demo-top">Демо-версия нового сайта Coffeerista</div>
+
+<nav class="nav" aria-label="Основное меню">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Coffeerista — наверх">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#e8a90a"/><circle cx="20" cy="20" r="17" fill="#ffc527"/><circle cx="20" cy="20" r="12.5" fill="none" stroke="#e8a90a" stroke-width="1.4"/><rect x="15" y="8.6" width="10" height="3.2" rx="1.6" fill="#3a2a08"/><path d="M20 27.5c-4-2.6-6-4.6-6-7a3.1 3.1 0 0 1 6-1.2 3.1 3.1 0 0 1 6 1.2c0 2.4-2 4.4-6 7z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span><span class="brand-name">COFFEERISTA</span><span class="brand-sub">кофейные бары · Пушкино</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#menu">Меню</a>
+      <a href="#lid">Крышка</a>
+      <a href="#places">Адреса</a>
+      <a href="#vibe">Атмосфера</a>
+      <a href="#reviews">Отзывы</a>
+    </div>
+    <a class="btn btn-lid nav-cta" href="#places">Где ближе</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-kicker">Сеть кофейных баров · Пушкино</p>
+      <h1>Кофе <span class="hand">с запиской</span><br>на крышке</h1>
+      <p class="lead">Три кофейни Coffeerista в Пушкино: на Московском проспекте, 14 и 57 и на улице Просвещения. Варим кофе с восьми утра, рисуем на пенке мишек и котиков, а на жёлтых крышках пишем «хорошего дня!».</p>
+      <div class="hero-actions">
+        <a class="btn btn-lid" href="#menu">Меню и цены</a>
+        <a class="btn btn-ghost" href="#lid">Подписать крышку</a>
+      </div>
+      <ul class="status-list" aria-label="Кофейни сейчас">
+        <li data-place="m14"><span class="dot" aria-hidden="true"></span><a href="#place-m14">Московский пр., 14</a><span class="st" data-status>с 8:00 до 21:00</span></li>
+        <li data-place="m57"><span class="dot" aria-hidden="true"></span><a href="#place-m57">Московский пр., 57к1</a><span class="st" data-status>с 8:00 до 21:00</span></li>
+        <li data-place="pr"><span class="dot" aria-hidden="true"></span><a href="#place-pr">ул. Просвещения, 12к1</a><span class="st" data-status>с 8:00 до 21:00</span></li>
+      </ul>
+      <div class="owner-note"><b>Заметка для владельца</b>Ни в одной из трёх карточек на Яндекс Картах нет телефона — гости не могут позвонить или заказать заранее. Добавьте номер, и на сайте появится кнопка «Позвонить».</div>
+    </div>
+    <div class="hero-art">
+      <figure class="ph hero-photo">
+        <img src="https://avatars.mds.yandex.net/get-altay/19847861/2a0000019df6e3b974b520897d773c4eda25/XXL" width="768" height="1024" alt="Зал Coffeerista: жёлтые кресла, графитовая стена и неон «Счастье нельзя купить, но можно купить капучино»" fetchpriority="high">
+        <span class="ph-tag">демо</span>
+      </figure>
+      <div class="hero-rating"><span class="star" aria-hidden="true">★</span>5,0<small>Яндекс Карты<br>439 оценок</small></div>
+      <svg class="hero-lid" viewBox="0 0 200 200" role="img" aria-label="Жёлтая крышка с надписью «хорошего дня!»">
+        <defs><path id="heroRim" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+        <circle cx="100" cy="100" r="98" fill="#e8a90a"/>
+        <circle cx="100" cy="100" r="93" fill="#ffc527"/>
+        <circle cx="100" cy="100" r="71" fill="none" stroke="#d99a00" stroke-width="2.4" opacity=".7"/>
+        <circle cx="100" cy="100" r="68" fill="#ffcc3a"/>
+        <text font-family="Oswald, Arial Narrow, sans-serif" font-weight="600" font-size="9.5" letter-spacing="2.6" fill="#c98d00" opacity=".75"><textPath href="#heroRim">COFFEERISTA • ПУШКИНО • COFFEERISTA • ПУШКИНО •</textPath></text>
+        <rect x="84" y="40" width="32" height="9" rx="4.5" fill="#3a2a08" opacity=".85"/>
+        <g transform="rotate(-10 100 100)" fill="#fff" font-family="Caveat, Segoe Print, cursive" font-weight="700" text-anchor="middle">
+          <text x="101" y="96" font-size="34" fill="#c98d00" opacity=".35">хорошего</text>
+          <text x="100" y="95" font-size="34">хорошего</text>
+          <text x="101" y="128" font-size="34" fill="#c98d00" opacity=".35">дня!</text>
+          <text x="100" y="127" font-size="34">дня!</text>
+          <path d="M131 140c-6-4-9-7-9-10.5a4.4 4.4 0 0 1 9-1.6 4.4 4.4 0 0 1 9 1.6c0 3.5-3 6.5-9 10.5z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section class="neon-band" aria-label="Неоновые надписи из залов Coffeerista">
+  <div class="neon-track">
+    <div class="neon-set">
+      <span class="neon">Счастье нельзя купить, но можно купить капучино</span><span class="neon-sep" aria-hidden="true">✦</span>
+      <span class="neon caps">Путь к моему сердцу лежит через кофе</span><span class="neon-sep" aria-hidden="true">✦</span>
+      <span class="neon red">Время для счастья — сейчас, место для счастья — здесь</span><span class="neon-sep" aria-hidden="true">✦</span>
+      <span class="neon">Каждому по факту в жизни нужен человек и кофе</span><span class="neon-sep" aria-hidden="true">✦</span>
+      <span class="neon red">Могли бы и раньше встретиться</span><span class="neon-sep" aria-hidden="true">✦</span>
+      <span class="neon">Всему причина капучино</span><span class="neon-sep" aria-hidden="true">✦</span>
+      <span class="neon caps">You look good</span><span class="neon-sep" aria-hidden="true">✦</span>
+    </div>
+    <div class="neon-set" aria-hidden="true">
+      <span class="neon">Счастье нельзя купить, но можно купить капучино</span><span class="neon-sep">✦</span>
+      <span class="neon caps">Путь к моему сердцу лежит через кофе</span><span class="neon-sep">✦</span>
+      <span class="neon red">Время для счастья — сейчас, место для счастья — здесь</span><span class="neon-sep">✦</span>
+      <span class="neon">Каждому по факту в жизни нужен человек и кофе</span><span class="neon-sep">✦</span>
+      <span class="neon red">Могли бы и раньше встретиться</span><span class="neon-sep">✦</span>
+      <span class="neon">Всему причина капучино</span><span class="neon-sep">✦</span>
+      <span class="neon caps">You look good</span><span class="neon-sep">✦</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-cream" id="lids">
+  <div class="wrap lids-grid">
+    <div class="lids-copy">
+      <div class="mark"><span class="mark-lid" aria-hidden="true"><span>привет</span></span><span class="eyebrow">Фирменная привычка</span></div>
+      <h2>Пишем на крышках</h2>
+      <p>Жёлтая крышка Coffeerista — маленькая открытка. Бариста подписывают напиток, рисуют сердечки, мишек и звёздочки, а иногда просто желают хорошего дня. Гости потом фотографируют эти крышки и выкладывают на Яндекс Карты.</p>
+      <blockquote class="tg-quote">
+        <p>«…рисовать вам сердечки на крышках и желать хорошего дня»</p>
+        <cite>— из Telegram-канала Coffeerista, 14 февраля</cite>
+      </blockquote>
+      <a class="btn btn-dark" href="#lid">Придумать свою надпись</a>
+    </div>
+    <ul class="lid-photos" aria-label="Фото крышек от гостей">
+      <li style="--rot:-6deg"><figure class="ph round"><img src="https://avatars.mds.yandex.net/get-altay/15257527/2a00000196ce73802d65d7a78a5362e679bc/XL" alt="Крышка с надписью «капучино», мишкой и звёздочками" width="600" height="800"><span class="ph-tag">демо</span></figure><span class="cap">«капучино» и мишка</span></li>
+      <li style="--rot:8deg"><figure class="ph round"><img src="https://avatars.mds.yandex.net/get-altay/10879408/2a00000190e99e7dce86246ea1ee54be11e3/XL" alt="Крышка с надписью «хорошего дня!»" width="600" height="800"><span class="ph-tag">демо</span></figure><span class="cap">«хорошего дня!»</span></li>
+      <li style="--rot:-3deg"><figure class="ph round"><img src="https://avatars.mds.yandex.net/get-altay/15153151/2a00000194efcca9138bb23157f61e65acd5/XL" alt="Крышка с надписью «кокос» и сердечком" width="600" height="800"><span class="ph-tag">демо</span></figure><span class="cap">«кокос ♡»</span></li>
+      <li style="--rot:5deg"><figure class="ph round"><img src="https://avatars.mds.yandex.net/get-altay/11408080/2a00000193b6bee1cc6a4b96b281569b6950/XL" alt="Крышка с букетом и надписью «улыбнитесь!»" width="600" height="800"><span class="ph-tag">демо</span></figure><span class="cap">«улыбнитесь!»</span></li>
+      <li style="--rot:4deg"><figure class="ph round"><img src="https://avatars.mds.yandex.net/get-altay/14246212/2a0000019a39b2785409995989e1b9cb2218/XL" alt="Две крышки с котиками: «латте» и «бамбл»" width="600" height="800"><span class="ph-tag">демо</span></figure><span class="cap">«латте» и «бамбл»</span></li>
+      <li style="--rot:-7deg"><figure class="ph round"><img src="https://avatars.mds.yandex.net/get-altay/19838861/2a0000019df939e44cab312cea8f5111309a/XL" alt="Две крышки с цветами: «латте» и «капучино»" width="600" height="800"><span class="ph-tag">демо</span></figure><span class="cap">«латте» и «капучино»</span></li>
+      <li style="--rot:6deg"><figure class="ph round"><img src="https://avatars.mds.yandex.net/get-altay/19829109/2a0000019ee0d584715414e20da71c88cda8/XL" alt="Купол холодного напитка с надписью «Ане» и сердечком" width="600" height="800"><span class="ph-tag">демо</span></figure><span class="cap">«Ане ♡»</span></li>
+      <li style="--rot:-4deg"><figure class="ph round"><img src="https://avatars.mds.yandex.net/get-altay/14910910/2a0000019a167f2e65e390b870f0bdc29883/XL" alt="Две крышки: «латте» и «какао»" width="600" height="800"><span class="ph-tag">демо</span></figure><span class="cap">«латте» и «какао»</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="art">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mark"><span class="mark-lid" aria-hidden="true"><span>пенка</span></span><span class="eyebrow">Латте-арт</span></div>
+      <h2>На пенке — мишки, котики и единороги</h2>
+      <p>Рисунки на капучино в Coffeerista гости снимают чаще, чем интерьер. Вот что бариста рисовали на пенке — это фото гостей с Яндекс Карт.</p>
+    </div>
+    <ul class="art-grid">
+      <li><figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/14675673/2a0000019666d901c18d6d6a117638988ea5/XL" alt="Капучино с мишкой на пенке" loading="lazy" width="600" height="800"><figcaption>мишка</figcaption><span class="ph-tag">демо</span></figure></li>
+      <li><figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/16965486/2a00000199e77ae84c2a5cd9cbcc8a8817a8/XL" alt="Котик на пенке капучино" loading="lazy" width="600" height="800"><figcaption>котик</figcaption><span class="ph-tag">демо</span></figure></li>
+      <li><figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/16390227/2a0000019a1293bfa6edb9e76a0514398f61/XL" alt="Единорог на пенке капучино" loading="lazy" width="600" height="800"><figcaption>единорог</figcaption><span class="ph-tag">демо</span></figure></li>
+      <li><figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/17863912/2a00000199fd5272fe339a8899dc3a7a91a1/XL" alt="Зайчик на пенке капучино" loading="lazy" width="600" height="800"><figcaption>зайчик</figcaption><span class="ph-tag">демо</span></figure></li>
+      <li><figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/14907397/2a0000019a2f8037f96ec362d060234fe01d/XL" alt="Тыква на пенке капучино" loading="lazy" width="600" height="800"><figcaption>тыква</figcaption><span class="ph-tag">демо</span></figure></li>
+      <li><figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/15386533/2a00000194a72ee4d6309d5808dd7116136c/XL" alt="Цветочный узор на пенке капучино" loading="lazy" width="600" height="800"><figcaption>узоры</figcaption><span class="ph-tag">демо</span></figure></li>
+      <li><figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/15167717/2a000001964dad7de6e3e8fe2751e1cb0906/XL" alt="Сердце на пенке капучино" loading="lazy" width="600" height="800"><figcaption>сердце</figcaption><span class="ph-tag">демо</span></figure></li>
+      <li><figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/11748256/2a0000019097506292f6e18493c6b58786b6/XL" alt="Розетта на пенке капучино" loading="lazy" width="600" height="800"><figcaption>розетта</figcaption><span class="ph-tag">демо</span></figure></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec-oak" id="menu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mark"><span class="mark-lid" aria-hidden="true"><span>меню</span></span><span class="eyebrow">Меню и цены</span></div>
+      <h2>Капучино — от 180 ₽</h2>
+      <p>Всё меню с табло над стойкой: кофе, холодные напитки, «не кофе», сезонные коллекции и сырники. Любой напиток бариста сделает на альтернативном молоке или на зерне без кофеина.</p>
+      <div class="owner-note"><b>Заметка для владельца</b>На Яндекс Картах в меню всего 5 позиций с пометкой «давно не обновлялось». Здесь — всё меню с ваших табло; цены можно будет менять самим.</div>
+    </div>
+    <div class="menu-layout">
+      <div class="board">
+        <div class="tabs" role="tablist" aria-label="Разделы меню" id="menuTabs"></div>
+        <div class="board-body" role="tabpanel" id="menuBody" tabindex="0" aria-live="polite"></div>
+      </div>
+      <aside class="menu-side" aria-label="Еда">
+        <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/14563476/2a0000019454c8331f0554237e8e232b0684/XL" alt="Сырники с шоколадным топпингом" loading="lazy" width="600" height="800"><figcaption>сырники</figcaption><span class="ph-tag">демо</span></figure>
+        <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/15126910/2a0000019454c875d8c207e285e66211b794/XL" alt="Тарталетка с малиной" loading="lazy" width="600" height="800"><figcaption>тарталетка</figcaption><span class="ph-tag">демо</span></figure>
+        <p class="side-note"><b>В витрине</b> — круассаны, тарталетки, десерты, сэндвичи и роллы. Их цены подскажут на месте.</p>
+      </aside>
+    </div>
+    <p class="fine">Цены — с фото меню-табло в кофейнях Coffeerista на Яндекс Картах. Объёмы указаны в миллилитрах, цены — в рублях.</p>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="lid">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mark"><span class="mark-lid" aria-hidden="true"><span>♡ тебе</span></span><span class="eyebrow">Конструктор крышки</span></div>
+      <h2>Подпишите свою крышку</h2>
+      <p>Соберите напиток, придумайте надпись и рисунок — стоимость посчитается по меню. Картинку можно показать бариста или отправить другу с приглашением на кофе.</p>
+      <div class="owner-note"><b>Заметка для владельца</b>Приглашение уходит другу в Telegram или WhatsApp со ссылкой на сайт и адресом кофейни — так гости приводят гостей. Можно превратить в акцию: «покажи крышку на кассе — допишем от руки».</div>
+    </div>
+    <div class="builder">
+      <form class="b-form" id="lidForm" autocomplete="off">
+        <label class="field"><span>Напиток</span><select id="bDrink"></select></label>
+        <div class="field"><span id="bSizeLbl">Объём</span><div class="seg" id="bSize" role="radiogroup" aria-labelledby="bSizeLbl"></div></div>
+        <fieldset class="field"><legend>Добавки</legend><div class="chips" id="bExtras"></div></fieldset>
+        <label class="field"><span>Надпись на крышке <em id="bCount">0/14</em></span><input type="text" id="bText" maxlength="14" value="хорошего дня!" placeholder="например, Ане ♡"></label>
+        <div class="field"><span id="bDoodleLbl">Рисунок маркером</span><div class="seg seg-icons" id="bDoodle" role="radiogroup" aria-labelledby="bDoodleLbl"></div></div>
+        <div class="field"><span id="bInkLbl">Цвет маркера</span><div class="seg" id="bInk" role="radiogroup" aria-labelledby="bInkLbl"></div></div>
+        <label class="field"><span>Кофейня</span><select id="bPlace"></select></label>
+      </form>
+      <div class="b-preview">
+        <div class="b-table"><canvas id="lidCanvas" width="900" height="900" role="img" aria-label="Крышка с вашей надписью"></canvas></div>
+        <div class="receipt" aria-live="polite">
+          <div class="r-row"><span id="rDrink">Капучино, 350 мл</span><b id="rDrinkP">210 ₽</b></div>
+          <div id="rExtras"></div>
+          <div class="r-total"><span>Итого</span><b id="rTotal">210 ₽</b></div>
+          <p class="r-note">Расчёт по ценам с меню-табло. В кофейне цена может отличаться.</p>
+          <div class="stamp">Демо-расчёт</div>
+        </div>
+        <div class="b-actions">
+          <a class="btn btn-lid" id="shareTg" href="https://t.me/share/url" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.5 3.6 2.9 10.8c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.3 4.8 3.6c.9.5 1.5.2 1.8-.8l3.2-15.1c.3-1.3-.5-1.9-1.7-1.3zM8.6 13.7l9.6-6.1c.5-.3.9-.1.5.2l-8.2 7.4-.3 3.4-1.6-4.9z"/></svg>
+            Позвать друга в Telegram</a>
+          <a class="btn btn-ghost" id="shareWa" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+          <button class="btn btn-ghost" id="bDownload" type="button">Скачать открытку</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-cream" id="places">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mark"><span class="mark-lid" aria-hidden="true"><span>рядом</span></span><span class="eyebrow">Адреса и часы</span></div>
+      <h2>Три кофейни в Пушкино</h2>
+      <p>По будням открываемся в 8:00, по выходным — в 9:00. Статус «открыто» на карточках считается по времени прямо сейчас.</p>
+    </div>
+    <div class="places">
+      <article class="place" id="place-m14" data-place="m14">
+        <figure class="ph place-photo"><img src="https://avatars.mds.yandex.net/get-altay/16130837/2a0000019a40edf71246cc3debb5a7ca94bd/XL" alt="Вход в Coffeerista на Московском проспекте, 14" loading="lazy" width="600" height="800"><span class="place-status" data-status-pill><span class="dot" aria-hidden="true"></span><span data-status>Пн–Пт 8–21</span></span><span class="ph-tag">демо</span></figure>
+        <div class="place-body">
+          <h3>Московский проспект, 14</h3>
+          <p class="place-meta">Пушкино · остановка «Горсовет» — 86 м</p>
+          <dl class="hours"><div><dt>Пн–Пт</dt><dd>8:00–21:00</dd></div><div><dt>Сб–Вс</dt><dd>9:00–21:00</dd></div></dl>
+          <ul class="tags"><li>Можно с собакой</li><li>Оплата картой</li><li>Кофе с собой</li><li>Вход без ступенек</li></ul>
+          <p class="place-rating"><span>★</span> 5,0 · 109 оценок, 88 отзывов</p>
+          <div class="place-actions">
+            <a class="btn btn-dark" href="https://yandex.ru/maps/?rtext=~56.009914%2C37.847523&amp;rtt=pd" target="_blank" rel="noopener">Маршрут</a>
+            <a class="btn btn-line" href="https://yandex.ru/maps/org/coffeerista/230732327687/reviews/" target="_blank" rel="noopener">Отзывы</a>
+          </div>
+        </div>
+      </article>
+      <article class="place" id="place-m57" data-place="m57">
+        <figure class="ph place-photo"><img src="https://avatars.mds.yandex.net/get-altay/13206609/2a0000018f48c5074ba52accc09e7ad996ea/XL" alt="Вывеска Coffeerista на Московском проспекте, 57, корпус 1" loading="lazy" width="600" height="800"><span class="place-status" data-status-pill><span class="dot" aria-hidden="true"></span><span data-status>Пн–Пт 8–21</span></span><span class="ph-tag">демо</span></figure>
+        <div class="place-body">
+          <h3>Московский проспект, 57к1</h3>
+          <p class="place-meta">Пушкино · остановка «Перегон» — 255 м</p>
+          <dl class="hours"><div><dt>Пн–Пт</dt><dd>8:00–21:00</dd></div><div><dt>Сб–Вс</dt><dd>9:00–21:00</dd></div></dl>
+          <ul class="tags"><li class="hl">Детская комната</li><li>Завтраки</li><li>Можно с собакой</li><li>Оплата картой</li><li>Вход без ступенек</li></ul>
+          <p class="place-rating"><span>★</span> 5,0 · 169 оценок, 116 отзывов</p>
+          <div class="place-actions">
+            <a class="btn btn-dark" href="https://yandex.ru/maps/?rtext=~55.997588%2C37.860594&amp;rtt=pd" target="_blank" rel="noopener">Маршрут</a>
+            <a class="btn btn-line" href="https://yandex.ru/maps/org/coffeerista/190421620266/reviews/" target="_blank" rel="noopener">Отзывы</a>
+          </div>
+        </div>
+      </article>
+      <article class="place" id="place-pr" data-place="pr">
+        <figure class="ph place-photo"><img src="https://avatars.mds.yandex.net/get-altay/16487000/2a0000019a1627283b1c68d6b442e17ba85c/XL" alt="Вход в Coffeerista на улице Просвещения, 12, корпус 1" loading="lazy" width="600" height="800"><span class="place-status" data-status-pill><span class="dot" aria-hidden="true"></span><span data-status>Пн–Пт 8–21</span></span><span class="ph-tag">демо</span></figure>
+        <div class="place-body">
+          <h3>Улица Просвещения, 12к1</h3>
+          <p class="place-meta">Новое Пушкино · остановка «Улица Просвещения» — 20 м</p>
+          <dl class="hours"><div><dt>Пн–Пт</dt><dd>8:00–21:00</dd></div><div><dt>Сб–Вс</dt><dd>9:00–22:00</dd></div></dl>
+          <ul class="tags"><li class="hl">Детская комната</li><li>Можно с собакой</li><li>Кофе с собой</li><li>Вход без ступенек</li></ul>
+          <p class="place-rating"><span>★</span> 5,0 · 161 оценка, 138 отзывов</p>
+          <div class="place-actions">
+            <a class="btn btn-dark" href="https://yandex.ru/maps/?rtext=~56.027706%2C37.856389&amp;rtt=pd" target="_blank" rel="noopener">Маршрут</a>
+            <a class="btn btn-line" href="https://yandex.ru/maps/org/coffeerista/82937351431/reviews/" target="_blank" rel="noopener">Отзывы</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="map" id="map">
+      <div class="map-ph">
+        <div>
+          <h3>Все три — на одной карте</h3>
+          <ol class="map-pins">
+            <li><span>1</span>Московский пр., 14</li>
+            <li><span>2</span>Московский пр., 57к1</li>
+            <li><span>3</span>ул. Просвещения, 12к1</li>
+          </ol>
+        </div>
+        <button class="btn btn-lid" type="button" id="mapBtn">Показать карту</button>
+      </div>
+    </div>
+    <p class="also">Ещё одна Coffeerista работает в Ивантеевке, на Советском проспекте, 2Б — <a href="https://yandex.ru/maps/org/coffeerista/212212468002/" target="_blank" rel="noopener">на карте</a>.</p>
+    <div class="owner-note"><b>Заметка для владельца</b>Часы и «открыто / закрыто» берутся из одного графика в коде — поменяли время, и сайт везде покажет новое.</div>
+  </div>
+</section>
+
+<section class="sec" id="vibe">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mark"><span class="mark-lid" aria-hidden="true"><span>уют</span></span><span class="eyebrow">Атмосфера</span></div>
+      <h2>Неон, жёлтые кресла и живая зелень</h2>
+      <p>Графитовые стены, дубовые столы, кольца с зеленью под потолком и неоновые фразы — в каждой кофейне своя. К праздникам залы наряжают: ёлки к Новому году, сердца ко Дню влюблённых, паутинка на Хэллоуин.</p>
+    </div>
+    <div class="vibe-grid">
+      <figure class="ph big"><img src="https://avatars.mds.yandex.net/get-altay/19580059/2a0000019d4263a2629d2c3f0afcb486a246/XL" alt="Зал с диванами и неоном «Время для счастья — сейчас, место для счастья — здесь»" loading="lazy" width="600" height="800"><figcaption>Московский, 57</figcaption><span class="ph-tag">демо</span></figure>
+      <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/13444254/2a0000019104a03cabb99c8ff1bd9f3505df/XL" alt="Неон «Путь к моему сердцу лежит через кофе»" loading="lazy" width="600" height="800"><figcaption>Московский, 57</figcaption><span class="ph-tag">демо</span></figure>
+      <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/18121248/2a0000019ecc140aa4c64b3fa84ecce325a9/XL" alt="Уголок с неоном «Всему причина капучино»" loading="lazy" width="600" height="800"><figcaption>Московский, 14</figcaption><span class="ph-tag">демо</span></figure>
+      <figure class="ph wide"><img src="https://avatars.mds.yandex.net/get-altay/16396695/2a00000199fc3ec97e8b34f8a809f27088dd/XL" alt="Барная стойка с витриной и меню-табло" loading="lazy" width="600" height="800"><figcaption>Просвещения, 12</figcaption><span class="ph-tag">демо</span></figure>
+      <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/15388054/2a00000199fc3ec3a3c31e2120adbc0f1bf8/XL" alt="Детская комната с игрушечной кухней" loading="lazy" width="600" height="800"><figcaption>Детская комната</figcaption><span class="ph-tag">демо</span></figure>
+      <figure class="ph"><img src="https://avatars.mds.yandex.net/get-altay/16416536/2a0000019a49a4acbd362513e00ebceb17e8/XL" alt="Гирлянда из полароидных снимков на деревянных рейках" loading="lazy" width="600" height="800"><figcaption>Просвещения, 12</figcaption><span class="ph-tag">демо</span></figure>
+      <figure class="ph wide"><img src="https://avatars.mds.yandex.net/get-altay/15629777/2a0000019a2018c03336fad48e096d85abba/XL" alt="Диваны, жёлтые стулья и неон «Могли бы и раньше встретиться»" loading="lazy" width="600" height="800"><figcaption>Просвещения, 12</figcaption><span class="ph-tag">демо</span></figure>
+    </div>
+    <ul class="perks">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-5h6v5"/><circle cx="12" cy="10.5" r="1.4"/></svg><b>Детская комната</b><span>На Просвещения и на Московском, 57: игрушечная кухня, столик и детский стульчик.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="10" r="2"/><circle cx="9" cy="5.5" r="2"/><circle cx="15" cy="5.5" r="2"/><circle cx="19" cy="10" r="2"/><path d="M12 11c-3 0-6 4-6 6.5 0 2 1.6 2.5 3 2.5 1.2 0 2-.6 3-.6s1.8.6 3 .6c1.4 0 3-.5 3-2.5C18 15 15 11 12 11z"/></svg><b>Можно с собакой</b><span>Во всех трёх кофейнях — заходите вместе с питомцем.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3c2 2 2 4 0 6M12 3c2 2 2 4 0 6M17 3c2 2 2 4 0 6"/><path d="M4 12h14v3a6 6 0 0 1-6 6h-2a6 6 0 0 1-6-6v-3z"/><path d="M18 13h1.5a2.5 2.5 0 0 1 0 5H18"/></svg><b>Без кофеина и лактозы</b><span>Любой напиток — на альтернативном молоке или на зерне без кофеина, +70 ₽.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/><path d="M7 15h4"/></svg><b>Программа лояльности</b><span>Гости в отзывах хвалят систему скидок — спросите у бариста, как подключиться.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec-oak" id="reviews">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="mark"><span class="mark-lid" aria-hidden="true"><span>спасибо</span></span><span class="eyebrow">Отзывы гостей</span></div>
+      <h2>5,0 у всех трёх кофеен</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="score">
+        <div class="score-num">5,0 <span aria-label="пять звёзд">★★★★★</span></div>
+        <p>439 оценок и 342 отзыва на Яндекс Картах</p>
+        <ul class="bars">
+          <li><span>Атмосфера</span><i style="--v:98%"></i><b>98%</b></li>
+          <li><span>Десерты</span><i style="--v:96%"></i><b>96%</b></li>
+          <li><span>Кофе</span><i style="--v:93%"></i><b>93%</b></li>
+          <li><span>Персонал</span><i style="--v:93%"></i><b>93%</b></li>
+          <li><span>Еда</span><i style="--v:92%"></i><b>92%</b></li>
+          <li><span>Напитки</span><i style="--v:91%"></i><b>91%</b></li>
+        </ul>
+        <small>Доля положительных упоминаний в отзывах, по трём кофейням вместе.</small>
+      </div>
+      <div>
+        <div class="reviews">
+          <figure class="review"><blockquote>«Самая любимая сеть кофеен в Пушкино. Очень вкусный кофе, обязательно сезонные вкусы… И оформление кофеен по сезонам и праздникам».</blockquote><figcaption><span class="ava" aria-hidden="true">Е</span><div><b>Елена Багнова</b><span>Московский пр., 14</span></div></figcaption></figure>
+          <figure class="review"><blockquote>«Вкусный кофе, средней плотности, приятная прожарка зерен и сливочный вкус! … Нежнейшие сырники!»</blockquote><figcaption><span class="ava" aria-hidden="true">О</span><div><b>Олеся Е.</b><span>ул. Просвещения, 12к1</span></div></figcaption></figure>
+          <figure class="review"><blockquote>«Беру кофе каждое утро, очень вкусно. … Еще есть зона, где может поиграть ребенок + детский стульчик».</blockquote><figcaption><span class="ava" aria-hidden="true">Г</span><div><b>Гертруда С.</b><span>Московский пр., 57к1</span></div></figcaption></figure>
+          <figure class="review"><blockquote>«Круассаны просто бомба, очень вкусный кофе (первая кофейня, в которой я не сыплю дополнительно сахар)».</blockquote><figcaption><span class="ava" aria-hidden="true">Н</span><div><b>Наташа</b><span>ул. Просвещения, 12к1</span></div></figcaption></figure>
+        </div>
+        <div class="rev-links">
+          <a href="https://yandex.ru/maps/org/coffeerista/230732327687/reviews/" target="_blank" rel="noopener">Все отзывы: Московский, 14</a>
+          <a href="https://yandex.ru/maps/org/coffeerista/190421620266/reviews/" target="_blank" rel="noopener">Московский, 57</a>
+          <a href="https://yandex.ru/maps/org/coffeerista/82937351431/reviews/" target="_blank" rel="noopener">Просвещения, 12</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="brand-name">COFFEERISTA</span>
+        <p>Сеть кофейных баров в Пушкино. Кофе, сезонные напитки, сырники и надписи от руки на жёлтых крышках.</p>
+        <div class="foot-links">
+          <a class="btn btn-lid" href="https://t.me/coffeeristaofficial" target="_blank" rel="noopener">Telegram-канал</a>
+          <a class="btn btn-ghost" href="#menu">Меню</a>
+        </div>
+      </div>
+      <ul class="foot-places">
+        <li><b>Московский пр., 14</b><span>Пн–Пт 8:00–21:00<br>Сб–Вс 9:00–21:00</span><a href="https://yandex.ru/maps/org/coffeerista/230732327687/" target="_blank" rel="noopener">Яндекс Карты</a></li>
+        <li><b>Московский пр., 57к1</b><span>Пн–Пт 8:00–21:00<br>Сб–Вс 9:00–21:00</span><a href="https://yandex.ru/maps/org/coffeerista/190421620266/" target="_blank" rel="noopener">Яндекс Карты</a></li>
+        <li><b>ул. Просвещения, 12к1</b><span>Пн–Пт 8:00–21:00<br>Сб–Вс 9:00–22:00</span><a href="https://yandex.ru/maps/org/coffeerista/82937351431/" target="_blank" rel="noopener">Яндекс Карты</a></li>
+      </ul>
+    </div>
+    <p class="demo-note">Это демо-версия нового сайта. Тексты, цены и фото взяты с Яндекс Карт и Telegram-канала Coffeerista и могут отличаться от актуальных. Часы работы в праздничные дни уточняйте в кофейне.</p>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-lid" href="#places">Маршрут</a>
+  <a class="btn btn-ghost" href="https://t.me/coffeeristaofficial" target="_blank" rel="noopener">Telegram</a>
+</div>
+
+<svg class="demo-mark" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="demoTile" width="720" height="400" patternUnits="userSpaceOnUse" patternTransform="rotate(-24)">
+      <text x="10" y="110" font-family="Oswald, Arial Narrow, sans-serif" font-weight="700" font-size="54" letter-spacing="8" fill="#ffffff">ДЕМО-ВЕРСИЯ</text>
+      <text x="370" y="320" font-family="Oswald, Arial Narrow, sans-serif" font-weight="700" font-size="54" letter-spacing="8" fill="#ffffff">ДЕМО-ВЕРСИЯ</text>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#demoTile)"/>
+</svg>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  if (/[?&]owner=1\b/.test(location.search)) root.classList.add('owner');
+
+  /* ---------- Данные: часы работы ---------- */
+  var PLACES = {
+    m14: { short: 'Московский пр., 14', addr: 'Московский проспект, 14', wk: [480, 1260], we: [540, 1260] },
+    m57: { short: 'Московский пр., 57к1', addr: 'Московский проспект, 57, корп. 1', wk: [480, 1260], we: [540, 1260] },
+    pr:  { short: 'ул. Просвещения, 12к1', addr: 'улица Просвещения, 12, корп. 1', wk: [480, 1260], we: [540, 1320] }
+  };
+
+  /* ---------- Данные: меню с табло ---------- */
+  var MENU = [
+    { tab: 'Кофе', tables: [
+      { cols: ['30', '60'], items: [
+        { n: 'Эспрессо', p: { 30: 90 } },
+        { n: 'Доппио', p: { 60: 140 } }
+      ] },
+      { cols: ['250', '350', '450'], items: [
+        { n: 'Американо', p: { 250: 160, 350: 190, 450: 220 } },
+        { n: 'Капучино', p: { 250: 180, 350: 210, 450: 250 } },
+        { n: 'Латте', p: { 250: 180, 350: 210, 450: 250 } },
+        { n: 'Раф', p: { 250: 230, 350: 260, 450: 300 } },
+        { n: 'Флэт уайт', p: { 250: 210 } },
+        { n: 'Моккачино', p: { 350: 260 } },
+        { n: 'Латте халва', p: { 350: 260, 450: 290 } },
+        { n: 'Латте баунти', p: { 350: 260, 450: 290 } },
+        { n: 'Латте сникерс', p: { 350: 280, 450: 330 } },
+        { n: 'Латте груша-горгонзола', p: { 350: 320, 450: 360 } },
+        { n: 'Латте мята-шоколад', p: { 350: 290 }, vol: { 350: '370' } },
+        { n: 'Латте вишнёвая панна котта', p: { 350: 290 }, vol: { 350: '370' } }
+      ] }
+    ] },
+    { tab: 'Холодный кофе', tables: [
+      { cols: ['370', '470'], items: [
+        { n: 'Айс латте', p: { 370: 240, 470: 280 } },
+        { n: 'Бамбл', p: { 370: 260, 470: 290 } },
+        { n: 'Бабл латте', p: { 370: 340, 470: 380 } },
+        { n: 'Эспрессо тоник', p: { 370: 250, 470: 290 } },
+        { n: 'Айс латте «Дубайский шоколад»', p: { 370: 390, 470: 420 } },
+        { n: 'Фраппе', p: { 370: 270, 470: 300 } }
+      ] }
+    ] },
+    { tab: 'Не кофе', tables: [
+      { title: 'Согревающие напитки', cols: ['250', '350', '450'], items: [
+        { n: 'Чай', p: { 250: 100, 350: 120, 450: 140 } },
+        { n: 'Матча-латте', p: { 350: 240, 450: 270 } },
+        { n: 'Детский латте', p: { 250: 140, 350: 170 } },
+        { n: 'Какао', p: { 350: 180, 450: 210 } },
+        { n: 'Горячий шоколад', p: { 350: 190, 450: 220 } }
+      ] },
+      { title: 'Авторские', cols: ['350', '450'], items: [
+        { n: 'Пряный облепиховый чай', p: { 450: 240 } },
+        { n: 'Глинтвейн', p: { 350: 220, 450: 250 } },
+        { n: 'Матча фисташка', p: { 350: 320, 450: 350 } },
+        { n: 'Пунш персик-личи', p: { 350: 240, 450: 270 } },
+        { n: 'Какао «Красный апельсин»', p: { 350: 230, 450: 270 } },
+        { n: 'Белый горячий шоколад с малиной', p: { 350: 289, 450: 319 } }
+      ] }
+    ] },
+    { tab: 'Холодные напитки', tables: [
+      { cols: ['370', '470'], items: [
+        { n: 'Молочный коктейль', p: { 370: 240, 470: 270 } },
+        { n: 'Смузи «Апельсиновое соцветие»', p: { 370: 269, 470: 319 } },
+        { n: 'Смузи «Клубничный пломбир»', p: { 370: 309, 470: 349 } },
+        { n: 'Бамбл матча', p: { 370: 280, 470: 320 } },
+        { n: 'Лимонад в ассортименте', p: { 370: 209 }, from: true }
+      ] }
+    ] },
+    { tab: 'Сезон', season: true },
+    { tab: 'Сырники и добавки', extra: true }
+  ];
+  var EXTRAS = [['Сироп', 40], ['Маршмеллоу', 40], ['Сливки 10%', 40], ['Альтернативное молоко', 70], ['Зерно без кофеина', 70]];
+
+  function rub(v) { return v.toLocaleString('ru-RU') + ' ₽'; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  /* ---------- Меню ---------- */
+  var tabsEl = document.getElementById('menuTabs');
+  var bodyEl = document.getElementById('menuBody');
+
+  function tableHTML(tb) {
+    var h = tb.title ? '<h4 class="tb-title">' + tb.title + '</h4>' : '';
+    h += '<table class="price"><thead><tr><th scope="col">Напиток</th>';
+    tb.cols.forEach(function (c, j) { h += '<th scope="col">' + c + (j === tb.cols.length - 1 ? ' мл' : '') + '</th>'; });
+    h += '</tr></thead><tbody>';
+    tb.items.forEach(function (it) {
+      var badge = '';
+      if (it.vol) { for (var k in it.vol) badge = ' <span class="vol">' + it.vol[k] + ' мл</span>'; }
+      h += '<tr><th scope="row">' + it.n + badge + '</th>';
+      tb.cols.forEach(function (c) {
+        var v = it.p[c];
+        if (v == null) h += '<td class="na">—</td>';
+        else h += '<td>' + (it.from ? 'от ' : '') + v + '</td>';
+      });
+      h += '</tr>';
+    });
+    return h + '</tbody></table>';
+  }
+  function seasonHTML() {
+    return '<div class="season">' +
+      '<article class="s-card s-summer"><h4>Летняя коллекция</h4><p class="s-sub">370 / 470 мл</p><ul>' +
+        '<li><span>Фраппе «Лимонная меренга»</span><b>370 / 400</b></li>' +
+        '<li><span>Бабл латте «Виноградный торо»</span><b>390 / 420</b></li>' +
+        '<li><span>Айс матча «Ежевика-кокос»</span><b>380 / 410</b></li>' +
+        '<li><span>Айс латте «Пина колада»</span><b>360 / 390</b></li>' +
+        '<li><span>Лимонад «Щавель-лайм»</span><b>249 / 289</b></li>' +
+      '</ul></article>' +
+      '<article class="s-card s-autumn"><h4>Сезон уютных напитков</h4><p class="s-sub">осенняя коллекция</p><ul>' +
+        '<li><span>Тыквенно-карамельный латте, 350 мл</span><b>280</b></li>' +
+        '<li><span>Капучино тирамису, 350 мл</span><b>290</b></li>' +
+        '<li><span>Какао «Пьяная вишня», 350 мл</span><b>250</b></li>' +
+        '<li><span>Пунш «Карибский грог», 450 мл</span><b>240</b></li>' +
+      '</ul></article></div>' +
+      '<p class="board-foot">Сезонные коллекции меняются несколько раз в год, вместе с оформлением залов. Какая идёт сейчас — подскажет бариста.</p>';
+  }
+  function extraHTML() {
+    return '<div class="extras">' +
+      '<article class="x-card syrniki"><h4>Сырники</h4><div class="big"><div>180 ₽<small>классические</small></div><div>200 ₽<small>малиновые</small></div></div>' +
+        '<p>Порция — 2 шт. К сырникам +40 ₽: сгущёнка, шоколадный или карамельный топпинг.</p></article>' +
+      '<article class="x-card"><h4>Добавки к напиткам</h4><ul class="extra-list">' +
+        '<li><span>Сироп в ассортименте</span><b>+40</b></li>' +
+        '<li><span>Маршмеллоу, топпинг</span><b>+40</b></li>' +
+        '<li><span>Молоко, сливки 10%</span><b>+40</b></li>' +
+        '<li><span>Альтернативное молоко</span><b>+70</b></li>' +
+        '<li><span>Зерно без кофеина</span><b>+70</b></li>' +
+        '<li><span>Мороженое</span><b>+70</b></li>' +
+      '</ul></article></div>';
+  }
+  function showTab(i, focus) {
+    var t = MENU[i];
+    var html = '';
+    if (t.tables) {
+      t.tables.forEach(function (tb) { html += tableHTML(tb); });
+      if (i === 0) html += '<p class="board-foot">Любой напиток бариста сделает на альтернативном молоке и на зерне без кофеина (+70 ₽).</p>';
+    } else if (t.season) html = seasonHTML();
+    else html = extraHTML();
+    bodyEl.innerHTML = html;
+    [].forEach.call(tabsEl.children, function (b, j) {
+      b.setAttribute('aria-selected', j === i ? 'true' : 'false');
+      b.tabIndex = j === i ? 0 : -1;
+      if (j === i && focus) b.focus();
+    });
+    bodyEl.setAttribute('aria-labelledby', 'tab-' + i);
+  }
+  MENU.forEach(function (t, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'tab'; b.id = 'tab-' + i;
+    b.setAttribute('role', 'tab'); b.setAttribute('aria-controls', 'menuBody');
+    b.textContent = t.tab;
+    b.addEventListener('click', function () { showTab(i); });
+    b.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); showTab((i + 1) % MENU.length, true); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); showTab((i + MENU.length - 1) % MENU.length, true); }
+    });
+    tabsEl.appendChild(b);
+  });
+  showTab(0);
+
+  /* ---------- Открыто / закрыто (время Москвы) ---------- */
+  function mskNow() {
+    var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Moscow', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+    var get = function (t) { for (var i = 0; i < parts.length; i++) if (parts[i].type === t) return parts[i].value; return '0'; };
+    var wd = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }[get('weekday')];
+    return { wd: wd, min: (parseInt(get('hour'), 10) % 24) * 60 + parseInt(get('minute'), 10) };
+  }
+  function hhmm(m) { return Math.floor(m / 60) + ':' + ('0' + (m % 60)).slice(-2); }
+  function dayHours(pl, wd) { return (wd === 0 || wd === 6) ? pl.we : pl.wk; }
+  function statusOf(pl) {
+    var n = mskNow(), h = dayHours(pl, n.wd);
+    if (n.min >= h[0] && n.min < h[1]) {
+      var left = h[1] - n.min;
+      return { open: true, text: left <= 60 ? 'Открыто ещё ' + left + ' мин' : 'Открыто до ' + hhmm(h[1]) };
+    }
+    if (n.min < h[0]) return { open: false, text: 'Откроется в ' + hhmm(h[0]) };
+    return { open: false, text: 'Закрыто, завтра с ' + hhmm(dayHours(pl, (n.wd + 1) % 7)[0]) };
+  }
+  function paintStatus() {
+    document.querySelectorAll('[data-place]').forEach(function (el) {
+      var s = statusOf(PLACES[el.getAttribute('data-place')]);
+      var label = el.querySelector('[data-status]');
+      if (label) label.textContent = s.text;
+      var pill = el.querySelector('[data-status-pill]') || el;
+      pill.classList.toggle('is-open', s.open);
+    });
+  }
+  paintStatus();
+  setInterval(paintStatus, 60000);
+
+  /* Карта грузится по клику: виджет тянет рекламные трекеры */
+  document.getElementById('mapBtn').addEventListener('click', function () {
+    var box = document.getElementById('map');
+    box.classList.add('loaded');
+    box.innerHTML = '<iframe title="Кофейни Coffeerista на карте Пушкино" src="https://yandex.ru/map-widget/v1/?ll=37.8545%2C56.0128&z=13&pt=37.847523%2C56.009914%2Cpm2ylm1~37.860594%2C55.997588%2Cpm2ylm2~37.856389%2C56.027706%2Cpm2ylm3" allowfullscreen></iframe>';
+  });
+
+  /* ---------- Конструктор крышки ---------- */
+  var DRINKS = [];
+  MENU.forEach(function (t) {
+    if (!t.tables) return;
+    t.tables.forEach(function (tb) {
+      tb.items.forEach(function (it) {
+        if (it.from) return;
+        var sizes = [];
+        tb.cols.forEach(function (c) { if (it.p[c] != null) sizes.push({ ml: (it.vol && it.vol[c]) || c, price: it.p[c] }); });
+        DRINKS.push({ group: t.tab, name: it.n, sizes: sizes });
+      });
+    });
+  });
+  var ICO = function (body) { return '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + body + '</svg>'; };
+  var DOODLES = [
+    ['heart', ICO('<path d="M12 20c-5-3.4-8-6.3-8-9.6A4.2 4.2 0 0 1 12 8.6a4.2 4.2 0 0 1 8 1.8c0 3.3-3 6.2-8 9.6z"/>'), 'Сердечко'],
+    ['bear', ICO('<path d="M6.9 9.4a2.4 2.4 0 1 1 2.6-3.1M17.1 9.4a2.4 2.4 0 1 0-2.6-3.1"/><circle cx="12" cy="13" r="6.6"/><ellipse cx="12" cy="15.4" rx="2.4" ry="1.7"/><circle cx="9.6" cy="11.6" r=".5" fill="currentColor"/><circle cx="14.4" cy="11.6" r=".5" fill="currentColor"/>'), 'Мишка'],
+    ['star', ICO('<path d="M12 3.5l2.6 5.5 5.9.6-4.5 3.9 1.4 5.8-5.4-3.1-5.4 3.1 1.4-5.8-4.5-3.9 5.9-.6z"/>'), 'Звёздочка'],
+    ['flower', ICO('<circle cx="12" cy="12" r="2"/><circle cx="12" cy="6.2" r="2.6"/><circle cx="17.5" cy="10.2" r="2.6"/><circle cx="15.4" cy="16.7" r="2.6"/><circle cx="8.6" cy="16.7" r="2.6"/><circle cx="6.5" cy="10.2" r="2.6"/>'), 'Цветок'],
+    ['smile', ICO('<circle cx="12" cy="12" r="8"/><path d="M8.5 14.2a4.2 4.2 0 0 0 7 0"/><circle cx="9.3" cy="10" r=".6" fill="currentColor"/><circle cx="14.7" cy="10" r=".6" fill="currentColor"/>'), 'Смайлик'],
+    ['none', ICO('<path d="M6 12h12"/>'), 'Без рисунка']
+  ];
+  var INKS = [['#ffffff', 'белый'], ['#2b2a2e', 'графит'], ['#d93a2b', 'красный']];
+
+  var st = { drink: 0, size: 1, extras: {}, text: 'хорошего дня!', doodle: 'heart', ink: '#ffffff', place: 'm14' };
+  var $ = function (id) { return document.getElementById(id); };
+  var selDrink = $('bDrink'), segSize = $('bSize'), chipBox = $('bExtras'), inText = $('bText'), segDoodle = $('bDoodle'), segInk = $('bInk'), selPlace = $('bPlace');
+
+  var curGroup = null, og = null;
+  DRINKS.forEach(function (d, i) {
+    if (d.group !== curGroup) { og = document.createElement('optgroup'); og.label = d.group; selDrink.appendChild(og); curGroup = d.group; }
+    var o = document.createElement('option'); o.value = i; o.textContent = d.name; og.appendChild(o);
+  });
+  st.drink = DRINKS.findIndex(function (d) { return d.name === 'Капучино'; });
+  selDrink.value = st.drink;
+  Object.keys(PLACES).forEach(function (k) { var o = document.createElement('option'); o.value = k; o.textContent = PLACES[k].short; selPlace.appendChild(o); });
+
+  function radioGroup(box, items, current, onPick) {
+    box.innerHTML = '';
+    items.forEach(function (it) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('role', 'radio');
+      b.setAttribute('aria-checked', it.value === current ? 'true' : 'false');
+      b.innerHTML = it.html;
+      if (it.label) b.setAttribute('aria-label', it.label), b.title = it.label;
+      b.addEventListener('click', function () {
+        [].forEach.call(box.children, function (x) { x.setAttribute('aria-checked', 'false'); });
+        b.setAttribute('aria-checked', 'true');
+        onPick(it.value);
+      });
+      box.appendChild(b);
+    });
+  }
+  function buildSizes() {
+    var d = DRINKS[st.drink];
+    if (st.size >= d.sizes.length) st.size = d.sizes.length > 1 ? 1 : 0;
+    radioGroup(segSize, d.sizes.map(function (s, i) { return { value: i, html: s.ml + ' мл <small>' + s.price + ' ₽</small>' }; }), st.size, function (v) { st.size = v; update(); });
+  }
+  EXTRAS.forEach(function (x, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.setAttribute('aria-pressed', 'false');
+    b.textContent = x[0] + ' +' + x[1];
+    b.addEventListener('click', function () {
+      st.extras[i] = !st.extras[i];
+      b.setAttribute('aria-pressed', st.extras[i] ? 'true' : 'false');
+      update();
+    });
+    chipBox.appendChild(b);
+  });
+  radioGroup(segDoodle, DOODLES.map(function (d) { return { value: d[0], html: d[1], label: d[2] }; }), st.doodle, function (v) { st.doodle = v; update(); });
+  radioGroup(segInk, INKS.map(function (c) { return { value: c[0], html: '<span class="ink-sw" style="background:' + c[0] + '"></span>' + c[1] }; }), st.ink, function (v) { st.ink = v; update(); });
+
+  selDrink.addEventListener('change', function () { st.drink = +selDrink.value; buildSizes(); update(); });
+  selPlace.addEventListener('change', function () { st.place = selPlace.value; update(); });
+  inText.addEventListener('input', function () { st.text = inText.value; update(); });
+
+  /* Рисование крышки на canvas */
+  function rr(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function circle(ctx, x, y, r) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); }
+  function rimText(ctx, cx, cy, r, str, size) {
+    ctx.save();
+    ctx.font = '600 ' + size + 'px Oswald, "Arial Narrow", sans-serif';
+    ctx.fillStyle = 'rgba(196,128,0,.6)';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    var widths = [], total = 0;
+    for (var i = 0; i < str.length; i++) { var w = ctx.measureText(str[i]).width; widths.push(w); total += w; }
+    var extra = (2 * Math.PI * r - total) / str.length;
+    var a = -Math.PI / 2;
+    for (var j = 0; j < str.length; j++) {
+      var step = (widths[j] + extra) / r;
+      ctx.save(); ctx.translate(cx, cy); ctx.rotate(a + step / 2); ctx.fillText(str[j], 0, -r); ctx.restore();
+      a += step;
+    }
+    ctx.restore();
+  }
+  function doodlePath(ctx, kind, x, y, s) {
+    var P = Math.PI;
+    if (kind === 'heart') {
+      ctx.beginPath(); ctx.moveTo(x, y + s * .38);
+      ctx.bezierCurveTo(x - s * .95, y - s * .2, x - s * .4, y - s * .9, x, y - s * .32);
+      ctx.bezierCurveTo(x + s * .4, y - s * .9, x + s * .95, y - s * .2, x, y + s * .38);
+      ctx.stroke();
+    } else if (kind === 'star') {
+      ctx.beginPath();
+      for (var i = 0; i < 10; i++) { var rr2 = i % 2 ? s * .2 : s * .48, a = -P / 2 + i * P / 5; ctx[i ? 'lineTo' : 'moveTo'](x + Math.cos(a) * rr2, y + Math.sin(a) * rr2); }
+      ctx.closePath(); ctx.stroke();
+    } else if (kind === 'flower') {
+      for (var k = 0; k < 7; k++) { var b = k * 2 * P / 7; ctx.beginPath(); ctx.ellipse(x + Math.cos(b) * s * .27, y + Math.sin(b) * s * .27, s * .17, s * .085, b, 0, 2 * P); ctx.stroke(); }
+      circle(ctx, x, y, s * .1); ctx.stroke();
+    } else if (kind === 'smile') {
+      circle(ctx, x, y, s * .4); ctx.stroke();
+      circle(ctx, x - s * .14, y - s * .1, s * .045); ctx.fill();
+      circle(ctx, x + s * .14, y - s * .1, s * .045); ctx.fill();
+      ctx.beginPath(); ctx.arc(x, y + s * .02, s * .2, .15 * P, .85 * P); ctx.stroke();
+    } else if (kind === 'bear') {
+      ctx.beginPath(); ctx.arc(x - s * .27, y - s * .27, s * .13, .55 * P, 1.95 * P); ctx.stroke();
+      ctx.beginPath(); ctx.arc(x + s * .27, y - s * .27, s * .13, 1.05 * P, 2.45 * P); ctx.stroke();
+      circle(ctx, x, y, s * .37); ctx.stroke();
+      circle(ctx, x - s * .13, y - s * .07, s * .04); ctx.fill();
+      circle(ctx, x + s * .13, y - s * .07, s * .04); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(x, y + s * .14, s * .13, s * .09, 0, 0, 2 * P); ctx.stroke();
+      circle(ctx, x, y + s * .1, s * .035); ctx.fill();
+    }
+  }
+  function drawLid(ctx, cx, cy, R, o) {
+    ctx.save();
+    ctx.shadowColor = 'rgba(40,25,0,.38)'; ctx.shadowBlur = R * .14; ctx.shadowOffsetY = R * .06;
+    circle(ctx, cx, cy, R); ctx.fillStyle = '#e3a106'; ctx.fill();
+    ctx.restore();
+    var g = ctx.createRadialGradient(cx - R * .35, cy - R * .4, R * .1, cx, cy, R);
+    g.addColorStop(0, '#ffd965'); g.addColorStop(1, '#f4b40f');
+    circle(ctx, cx, cy, R * .955); ctx.fillStyle = g; ctx.fill();
+    ctx.lineWidth = R * .02; ctx.strokeStyle = 'rgba(176,112,0,.45)'; circle(ctx, cx, cy, R * .79); ctx.stroke();
+    ctx.lineWidth = R * .012; ctx.strokeStyle = 'rgba(255,240,190,.6)'; circle(ctx, cx, cy, R * .765); ctx.stroke();
+    g = ctx.createRadialGradient(cx - R * .25, cy - R * .3, R * .05, cx, cy, R * .76);
+    g.addColorStop(0, '#ffd75a'); g.addColorStop(1, '#ffc21f');
+    circle(ctx, cx, cy, R * .755); ctx.fillStyle = g; ctx.fill();
+    rimText(ctx, cx, cy, R * .875, 'COFFEERISTA  •  СЕТЬ КОФЕЙНЫХ БАРОВ  •  ПУШКИНО  •  ', R * .066);
+    ctx.fillStyle = 'rgba(58,42,8,.85)'; rr(ctx, cx - R * .17, cy - R * .64, R * .34, R * .09, R * .045); ctx.fill();
+    ctx.fillStyle = 'rgba(58,42,8,.55)'; circle(ctx, cx, cy + R * .63, R * .028); ctx.fill();
+
+    var text = (o.text || '').trim() || o.fallback;
+    var hasD = o.doodle !== 'none';
+    var shade = o.ink === '#ffffff' ? 'rgba(150,90,0,.32)' : 'rgba(255,240,200,.35)';
+    ctx.save();
+    ctx.translate(cx, cy); ctx.rotate(-0.13);
+    var size = R * .34;
+    ctx.font = '700 ' + size + 'px Caveat, "Segoe Print", cursive';
+    while (ctx.measureText(text).width > R * 1.24 && size > R * .12) { size -= R * .01; ctx.font = '700 ' + size + 'px Caveat, "Segoe Print", cursive'; }
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    var ty = hasD ? -R * .1 : R * .02;
+    var off = R * .012;
+    ctx.fillStyle = shade; ctx.fillText(text, off, ty + off * 1.5);
+    ctx.fillStyle = o.ink; ctx.fillText(text, 0, ty);
+    if (hasD) {
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.lineWidth = R * .03;
+      var dx = 0, dy = R * .3, ds = R * .42;
+      ctx.strokeStyle = shade; ctx.fillStyle = shade; doodlePath(ctx, o.doodle, dx + off, dy + off * 1.5, ds);
+      ctx.strokeStyle = o.ink; ctx.fillStyle = o.ink; doodlePath(ctx, o.doodle, dx, dy, ds);
+    }
+    ctx.restore();
+  }
+
+  var cv = $('lidCanvas'), cx2 = cv.getContext('2d');
+  function lidOpts() {
+    var d = DRINKS[st.drink];
+    return { text: st.text, fallback: d.name.toLowerCase(), doodle: st.doodle, ink: st.ink };
+  }
+  function drawPreview() {
+    cx2.clearRect(0, 0, cv.width, cv.height);
+    drawLid(cx2, 450, 432, 380, lidOpts());
+    cx2.save();
+    cx2.font = '600 22px Manrope, sans-serif'; cx2.textAlign = 'center';
+    cx2.fillStyle = 'rgba(60,40,10,.55)'; cx2.fillText('демо-версия', 450, 872);
+    cx2.restore();
+  }
+  function order() {
+    var d = DRINKS[st.drink], s = d.sizes[st.size];
+    var ex = EXTRAS.filter(function (x, i) { return st.extras[i]; });
+    var total = s.price + ex.reduce(function (a, x) { return a + x[1]; }, 0);
+    return { d: d, s: s, ex: ex, total: total, place: PLACES[st.place] };
+  }
+  function shareText(o) {
+    var t = (st.text || '').trim();
+    return 'Пойдём на кофе? ☕ Coffeerista, ' + o.place.addr + ', Пушкино. Возьму тебе ' + o.d.name.toLowerCase() + ', ' + o.s.ml + ' мл' +
+      (t ? ' — и попрошу подписать крышку: «' + t + '»' : '') + '. Могли бы и раньше встретиться ♡';
+  }
+  function siteUrl() { return location.href.split('#')[0].split('?')[0]; }
+  function update() {
+    var o = order();
+    $('bCount').textContent = (st.text || '').length + '/14';
+    $('rDrink').textContent = o.d.name + ', ' + o.s.ml + ' мл';
+    $('rDrinkP').textContent = rub(o.s.price);
+    $('rExtras').innerHTML = o.ex.map(function (x) { return '<div class="r-row"><span>' + esc(x[0]) + '</span><b>+' + rub(x[1]) + '</b></div>'; }).join('');
+    $('rTotal').textContent = rub(o.total);
+    var txt = shareText(o), url = siteUrl();
+    $('shareTg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(txt);
+    $('shareWa').href = 'https://wa.me/?text=' + encodeURIComponent(txt + ' ' + url);
+    drawPreview();
+  }
+  function fit(ctx, text, maxW, weight, size, family) {
+    do { ctx.font = weight + ' ' + size + 'px ' + family; size -= 2; } while (ctx.measureText(text).width > maxW && size > 14);
+  }
+  $('bDownload').addEventListener('click', function () {
+    var o = order();
+    var c = document.createElement('canvas'); c.width = 1080; c.height = 1350;
+    var x = c.getContext('2d');
+    x.fillStyle = '#26282c'; x.fillRect(0, 0, 1080, 1350);
+    var gl = x.createRadialGradient(540, 720, 40, 540, 720, 720);
+    gl.addColorStop(0, 'rgba(255,197,39,.2)'); gl.addColorStop(1, 'rgba(255,197,39,0)');
+    x.fillStyle = gl; x.fillRect(0, 0, 1080, 1350);
+    x.textAlign = 'left'; x.textBaseline = 'alphabetic';
+    x.fillStyle = '#ffc527'; x.font = '700 46px Oswald, "Arial Narrow", sans-serif'; x.fillText('COFFEERISTA', 80, 124);
+    x.fillStyle = '#b4afa6'; x.font = '600 26px Manrope, sans-serif'; x.fillText('кофейные бары · Пушкино', 80, 166);
+    x.fillStyle = '#f3efe7'; x.font = '700 104px Oswald, "Arial Narrow", sans-serif'; x.fillText('ПОЙДЁМ НА КОФЕ?', 80, 300);
+    drawLid(x, 540, 690, 300, lidOpts());
+    x.textAlign = 'center';
+    x.fillStyle = '#f3efe7'; fit(x, o.d.name + ', ' + o.s.ml + ' мл', 920, 700, 44, 'Manrope, sans-serif'); x.fillText(o.d.name + ', ' + o.s.ml + ' мл', 540, 1092);
+    x.fillStyle = '#b4afa6'; fit(x, 'Coffeerista, ' + o.place.addr, 920, 500, 30, 'Manrope, sans-serif'); x.fillText('Coffeerista, ' + o.place.addr, 540, 1144);
+    x.fillStyle = '#ffc527'; x.font = '700 58px Caveat, cursive'; x.fillText('Могли бы и раньше встретиться', 540, 1228);
+    x.fillStyle = 'rgba(243,239,231,.55)'; x.font = '600 24px Manrope, sans-serif'; x.fillText('демо-версия', 540, 1306);
+    c.toBlob(function (blob) {
+      if (!blob) return;
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = 'coffeerista-kryshka.png';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+    }, 'image/png');
+  });
+
+  buildSizes();
+  update();
+  if (document.fonts && document.fonts.load) {
+    Promise.all([
+      document.fonts.load('700 40px Caveat', 'хорошего дня!'),
+      document.fonts.load('600 20px Oswald', 'COFFEERISTA ПУШКИНО'),
+      document.fonts.load('700 20px Manrope', 'Капучино')
+    ]).then(drawPreview, drawPreview);
+    document.fonts.ready.then(drawPreview);
+  }
+})();
+</script>
+</body>
+</html>
